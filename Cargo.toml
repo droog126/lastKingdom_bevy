@@ -1,8 +1,84 @@
 [package]
-name = "lastkingdom_bevy"
+name = "lastkingdom"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bevy = "0.6.0"
+bevy-inspector-egui = "0.7.1"
+rand = "0.8.0"
+micromath = "2.0.0"
+bevy_asset_loader = { version = "0.8" }
+bevy_mod_debugdump = "0.3.0"
+
+[toolchain]
+channel = "nightly"
+
+#[dependencies.bevy]
+#version = "0.6"
+# Disable the default features if there are any that you do not want
+#default-features = false
+#features = [
+#    "render",
+#    "bevy_winit",
+#    "dynamic",
+#    "bevy_ui",
+#    "bevy_dynamic_plugin",
+#    "filesystem_watcher",
+#    "bevy_sprite",
+#    "bevy_text",
+#
+#    "trace_tracy",
+#    "trace",
+#    "wgpu_trace",
+#    # These are the default features:
+#    # (keep whichever you like)
+#
+#
+#
+#    # 手柄不需要
+#    # "bevy_gilrs",
+#    # 3d文件不需要
+#    # "bevy_gltf",
+#
+#
+#    # 声音
+#    "bevy_audio",
+#    "mp3",
+#    # 未知
+#
+#
+#
+#    # linux
+#    #"x11",
+#    #"wayland",
+#
+#
+#    # 文件格式
+#    #  图片
+#    "png",
+#    "jpeg",
+#    "tga",
+#    "hdr",
+#    "bmp",
+#    "dds",
+#    # 音频
+#    "wav",
+#    "flac",
+#    "vorbis",
+#    "serialize",
+#]
+#
+
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+
